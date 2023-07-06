@@ -34,15 +34,16 @@ def signup(request):
         date=request.POST.get("date")
         if(password!=repassword):
             messages.success(request,"Your Password does not match")
-        message_body=f"Your form has been submitted Successfully \nThank you {first_name} {last_name}"
-        email_message=EmailMessage("Form Submission Confirmation",message_body,to=[email])
-        email_message.send()
-        User_Data.objects.create(first=first_name, last_name=last_name, email=email, password=password,
-                                date=date)
-        current_datetime = datetime.datetime.now()
-        Scores.objects.create(first=first_name,email=email,currentlevel=1,score=0,time=current_datetime.strftime("%X"))
-
-        messages.success(request,"Form Submitted Successfully \n Confirmation Mail is Sent")
+        else:
+            message_body=f"Your form has been submitted Successfully \nThank you {first_name} {last_name}"
+            email_message=EmailMessage("Form Submission Confirmation",message_body,to=[email])
+            email_message.send()
+            User_Data.objects.create(first=first_name, last_name=last_name, email=email, password=password,
+                                    date=date)
+            current_datetime = datetime.datetime.now()
+            Scores.objects.create(first=first_name,email=email,currentlevel=1,score=0,time=current_datetime.strftime("%X"))
+    
+            messages.success(request,"Form Submitted Successfully \n Confirmation Mail is Sent")
     return render(request,"signup.html")
 
 def answers(request):
