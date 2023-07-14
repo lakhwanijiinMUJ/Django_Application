@@ -95,6 +95,11 @@ body {
 }
 
     </style>
+    <script>
+        var putDate = function(form) {
+        form.date.value = new Date().toString();
+        };
+    </script>
 </head>
 <body>
     <div class="login-box">
@@ -109,7 +114,7 @@ body {
                 </div>
 
                 <div class="user-box">
-                  <input type="datetime-local" name="date" required="">
+                  <input type="hidden" name="date" type="hidden">
                 </div>
                 <input type="submit" id="submit_button"/>
             </form>
