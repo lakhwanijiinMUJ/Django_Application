@@ -67,7 +67,7 @@ def answers(request):
             user.time = time
             user.save()
             messages.success(request, "Your Answer is correct \n Pls signin again")
-        elif(answer=="jack naiger" and level=="3"):
+        elif(answer=="jack napier" and level=="3"):
             level="4"
             user = Scores.objects.get(id=id)
             user.currentlevel = level
