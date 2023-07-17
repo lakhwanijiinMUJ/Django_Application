@@ -51,7 +51,7 @@ def answers(request):
         level=request.session["level"]
         time=request.POST.get("date")
         id=request.session["id"]
-        if(answer=="Love1" and level=="1"):
+        if(answer=="bat insignia" and level=="1"):
             level="2"
             user = Scores.objects.get(id=id)
             user.currentlevel = level
@@ -59,7 +59,7 @@ def answers(request):
             user.time = time
             user.save()
             messages.success(request,"Your Answer is correct \n Pls signin again")
-        elif(answer=="Love2" and level=="2"):
+        elif(answer=="gotham" and level=="2"):
             level="3"
             user = Scores.objects.get(id=id)
             user.currentlevel = level
@@ -67,7 +67,7 @@ def answers(request):
             user.time = time
             user.save()
             messages.success(request, "Your Answer is correct \n Pls signin again")
-        elif(answer=="Love3" and level=="4"):
+        elif(answer=="jack naiger" and level=="4"):
             level="4"
             user = Scores.objects.get(id=id)
             user.currentlevel = level
